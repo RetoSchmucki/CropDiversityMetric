@@ -1,1 +1,1 @@
-/data/crop_seq_data.csv
+data/crop_seq_data.csv
