@@ -4,10 +4,10 @@ author:
 - Reto Schmucki ^1,\*^, David A. Bohan ^2^, Michael J.O. Pocock ^1^,
 - Mette Termansen ^3^, Olivier Therond ^4^
 output:
-  html_document:
-    df_print: paged
   pdf_document:
     latex_engine: xelatex
+  html_document:
+    df_print: paged
 mainfont: Calibri
 fontsize: 11pt
 ---
@@ -295,7 +295,7 @@ crop_seq_data[order(landscape5kmID, parcel_id, year),]
 
 From these sequences, we computed the average diversity estimated in arable field within each of the 500 landscapes. We computed the 8-year diversity metric from both the height year and the four year truncated sequences. 
 
-Warning: the computing the indices across all field and landscape is computer intensive and for this example restricted the code below to five landscapes
+Warning: computing the indices across all fields and landscapes is computer intensive and thus for, we restricted the example below to the first five landscapes, this can be adusted by setting "limit_length = FALSE"
 
 \vspace{0.5cm}
 
@@ -304,7 +304,7 @@ library(data.table)
 library(mobr)
 
 # Change the line below to FALSE to run across all landscapes
-limit_length <- TRUE
+limit_length = TRUE
 
 crop_seq_data <- fread("data/crop_seq_data.csv")
 
