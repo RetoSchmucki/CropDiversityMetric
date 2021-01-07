@@ -281,6 +281,7 @@ When crop sequence available are limited in time, we can extrapolate the diversi
 
 The data we used are a subset of real crop data, that we extracted for 500 randomly sampled landscapes that the location have been censured to the large geographic region.   
 
+Warning: The crop_seq_data.csv data set is waiting for agreement before release.
 \vspace{0.5cm}
 
 ```{r crop_sample_table}
