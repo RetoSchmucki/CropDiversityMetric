@@ -4,16 +4,16 @@ author:
 - Reto Schmucki ^1,\*^, David A. Bohan ^2^, Michael J.O. Pocock ^1^,
 - Mette Termansen ^3^, Olivier Therond ^4^
 output:
-  pdf_document:
-    latex_engine: xelatex
   html_document:
     df_print: paged
+  pdf_document:
+    latex_engine: xelatex
 mainfont: Calibri
 fontsize: 11pt
 ---
 
 \vspace{0.25cm}
-1. Biodiversity, UK Centre for Ecoloyg and Hydrology, Wallingford, OX10 8BB, UK.
+1. Biodiversity, UK Centre for Ecology and Hydrology, Wallingford, OX10 8BB, UK.
 2. Agroécologie, AgroSup Dijon, INRAE, Université de Bourgogne Franche-Comté, F-21000 Dijon, France.
 3. Department of Food and Resource Economics, Copenhagen University, Rolighedsvej 23, DK-1958 Frederiksberg C., Denmark.
 4. Université de Lorraine, INRAE, LAE, F-68000 Colmar, France.
