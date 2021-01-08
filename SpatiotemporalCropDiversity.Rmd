@@ -4,10 +4,10 @@ author:
 - Reto Schmucki ^1,\*^, David A. Bohan ^2^, Michael J.O. Pocock ^1^,
 - Mette Termansen ^3^, Olivier Therond ^4^
 output:
-  html_document:
-    df_print: paged
   pdf_document:
     latex_engine: xelatex
+  html_document:
+    df_print: paged
 mainfont: Calibri
 fontsize: 11pt
 ---
@@ -53,15 +53,15 @@ library(data.table)
 #case (a)
 mono_div <- data.table(parcel_id = c(rep(c(1,2,3,4),c(4,4,4,4))),
             year = c(rep(c(1,2,3,4),c(4))),
-            crop_name = c(rep(c("a", "a", "b", "c"),c(4,4,4,4))))
+            crop_name = c(rep(c("a", "a", "B", "c"),c(4,4,4,4))))
 
 #case b)
 rot_sync <- data.table(parcel_id = c(rep(c(1,2,3,4),c(4,4,4,4))),
             year = c(rep(c(1,2,3,4),c(4))),
-            crop_name = c("a", "a", "b", "c",
-                          "a", "a", "b", "c", 
-                          "a", "a", "b", "c",
-                          "a", "a", "b", "c"))
+            crop_name = c("a", "a", "B", "c",
+                          "a", "a", "B", "c", 
+                          "a", "a", "B", "c",
+                          "a", "a", "B", "c"))
 
 #case c)
 div_rot_desync <- data.table(parcel_id = c(rep(c(1,2,3,4),c(4,4,4,4))),
@@ -78,7 +78,7 @@ Crop diversity can be estimated along 1) the spatial dimension, representing the
 
 ## Spatial and Temporal diversity functions
 
-To compute each of these IBR curves, we can use the rarefaction function implemented in the R package mobr. This function estimates the IBR curves from an abundance matrix, here described as the number of field of year sown for each crop. Below, we wrote two R-functions to estimate the IBR curve along the spatial and temporal dimensions. In these functions, we first need to generate a matrix with the total number of occurrence for each crop across the different fields (parcel) in a given year or across the different years in a given field. We also provide a third function to estimate the crop diversity observed in the overall landscape, accounting for both the spatial and temporal dimension of the cropping system.
+To compute each of these IBR curves, we can use the rarefaction function implemented in the R package mobr v2.0.0 (McGlinn et al. 2020). This function estimates the IBR curves from an abundance matrix, here described as the number of field of year sown for each crop. Below, we wrote two R-functions to estimate the IBR curve along the spatial and temporal dimensions. In these functions, we first need to generate a matrix with the total number of occurrence for each crop across the different fields (parcel) in a given year or across the different years in a given field. We also provide a third function to estimate the crop diversity observed in the overall landscape, accounting for both the spatial and temporal dimension of the cropping system.
 
 \vspace{0.5cm}
 
@@ -276,9 +276,9 @@ ggsave("figures/crop_div_plots.png", plot = crop_div_plots,
 
 ## Validation of extrapolated diversity metrics
 
-When crop sequence are limited in time, we can extrapolate the diversity metric beyond the number of cropping event available. It is suggested that the extrapolated value are acceptable up to twice the length of the sequence available. Although this has been shown to be acceptable for biological diversity (e.i., species), it is not clear if this also apply to crop diversity sown in rotation systems. To assess the validity of the extrapolated diversity, we used real crop sequences grown across 500 landscapes (5x5km) distributed across Denmark and France. In each country, we extracted the information of 8-year crop sequences grown in 28,092 and 35,079 arable fields, in Denmark and France respectively. From these sequences, we derived the temporal component of crop diversity from each of the 500 landscapes, contrasting the diversity values estimated from the entire eight years crop sequences with the eight years diversity values obtained through extrapolation from the 4-year truncated crop sequences.
+When crop sequence are limited in time, we can extrapolate the diversity metric beyond the number of cropping event available. It is suggested that the extrapolated value are acceptable up to twice the length of the sequence available. Although this has been shown to be acceptable for biological diversity (e.i., species), it is not clear if this also apply to crop diversity sown in rotation systems. To assess the validity of the extrapolated diversity, we used real crop sequences grown across 500 landscapes (5x5km) distributed across Denmark and France. In each country, we extracted the information of 8-year crop sequences grown in 28,092 and 35,079 arable fields, in Denmark and France respectively.  In France, we had access to nine years of data (2006-2014) derived from the Registre Parcellaire Graphique (RPG) Explorer with the French LPIS (Levavasseur et al. 2016). The RPG Explorer used algorithms and predefined rules to identify and link the spatial LPIS data to annually reported crops. This data set covers almost all arable fields in France (99% of the estimated arable cropland in 2009), providing access to the crop sequences reported in 9,186,074 distinct land parcels. In Denmark, we used data gathered from 578,801 fields over eight years (2010-2017). The crop sequences were extracted from field parcel maps curated in the Ministry of Environment and Food in Denmark (Ministry of Environment and Food of Denmark, 2016). From these sequences, we derived the temporal component of crop diversity from each of the 500 landscapes, contrasting the diversity values estimated from the entire eight years crop sequences with the eight years diversity values obtained through extrapolation from the 4-year truncated crop sequences.
 
-The data we used are a subset of real crop data, that we extracted for 500 randomly sampled landscapes where the location have been censured to the large geographic region.   
+The data used below are a subset of real crop sequences extracted from 500 randomly sampled landscapes distributed across Denmark and France. For this example, exact locations have been censured to the large geographic region.   
 
 \vspace{0.5cm}
 
