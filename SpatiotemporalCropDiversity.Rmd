@@ -4,10 +4,10 @@ author:
 - Reto Schmucki ^1,\*^, David A. Bohan ^2^, Michael J.O. Pocock ^1^,
 - Mette Termansen ^3^, Olivier Therond ^4^
 output:
-  html_document:
-    df_print: paged
   pdf_document:
     latex_engine: xelatex
+  html_document:
+    df_print: paged
 mainfont: Calibri
 fontsize: 11pt
 ---
@@ -276,7 +276,7 @@ ggsave("figures/crop_div_plots.png", plot = crop_div_plots,
 
 ## Validation of extrapolated diversity metrics
 
-When crop sequence are limited in time, we can extrapolate the diversity metric beyond the number of cropping event available. It is suggested that the extrapolated value are acceptable up to twice the length of the sequence available. Although this has been shown to be acceptable for biological diversity (e.i., species), it is not clear if this also apply to crop diversity sown in rotation systems. To assess the validity of the extrapolated diversity, we used real crop sequences grown across 500 landscapes (5x5km) distributed across Denmark and France. In each country, we extracted the information of 8-year crop sequences grown in 28,092 and 35,079 arable fields, in Denmark and France respectively.  In France, we had access to nine years of data (2006-2014) derived from the Registre Parcellaire Graphique (RPG) Explorer with the French LPIS (Levavasseur et al. 2016). The RPG Explorer used algorithms and predefined rules to identify and link the spatial LPIS data to annually reported crops. This data set covers almost all arable fields in France (99% of the estimated arable cropland in 2009), providing access to the crop sequences reported in 9,186,074 distinct land parcels. In Denmark, we used data gathered from 578,801 fields over eight years (2010-2017). The crop sequences were extracted from field parcel maps curated in the Ministry of Environment and Food in Denmark (Ministry of Environment and Food of Denmark, 2016). From these sequences, we derived the temporal component of crop diversity from each of the 500 landscapes, contrasting the diversity values estimated from the entire eight years crop sequences with the eight years diversity values obtained through extrapolation from the 4-year truncated crop sequences.
+When crop sequence are limited in time, we can extrapolate the diversity metric beyond the number of cropping event available. It is suggested that the extrapolated value are acceptable up to twice the length of the sequence available. Although this has been shown to be acceptable for biological diversity (e.i., species), it is not clear if this also apply to crop diversity sown in rotation systems. To assess the validity of the extrapolated diversity, we used real crop sequences grown across 500 landscapes (5x5km) distributed across Denmark and France. In each country, we extracted the information of 8-year crop sequences grown in 28,092 and 35,079 arable fields, in Denmark and France respectively. In France, we had access to a data set, derived from the French LPIS, describing crop sequences across nine years (2006-2014). Algorithms and predefined rules to identify and link the annual LPIS data to derive this data set are presented in Levavasseur et al. (2016). This data set covers almost all arable fields in France (99% of the estimated arable cropland in 2009), providing access to the crop sequences reported in 9,186,074 distinct land parcels. In Denmark, we used data gathered from 578,801 fields over eight years (2010-2017). The crop sequences were extracted from field parcel maps curated in the Danish General Agricultural (Landbrug) Register database of the Miljø-og Fødevareministeriet (Danish Ministry of Environment and Food).From these sequences, we derived the temporal component of crop diversity from each of the 500 landscapes, contrasting the diversity values estimated from the entire eight years crop sequences with the eight years diversity values obtained through extrapolation from the 4-year truncated crop sequences.
 
 The data used below are a subset of real crop sequences extracted from 500 randomly sampled landscapes distributed across Denmark and France. For this example, exact locations have been censured to the large geographic region.   
 
