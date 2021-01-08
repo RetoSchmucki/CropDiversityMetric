@@ -1,7 +1,7 @@
 
 ## Spatiotemporal crop diversity in agricultural rotation landscapes
 
-This repository contain the conceptual explanation and the method used to calculate the spatial and temporal component of crop diversity in agricultural landscapes, using Individual-Based Rarefaction curve computed along both of these dimension that characterise the short-term dynamics landscapes shaped by arable crops.
+This repository contains the conceptual framework and the method used to calculate the spatial and temporal component of crop diversity in agricultural landscapes, using Individual-Based Rarefaction curve computed along both of these dimension that characterise the short-term dynamics landscapes shaped by arable crops.
 
 We provide the necessary functions to compute the different components of crop diversity and test the adequacy of extrapolating crop diversity beyond the length of the sequence available. This concept has been shown for biological diversity in species communities, but need to be validated for crop sequence sown in rotation cropping systems.
 
