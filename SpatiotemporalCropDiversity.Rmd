@@ -4,10 +4,10 @@ author:
 - Reto Schmucki ^1,\*^, David A. Bohan ^2^, Michael J.O. Pocock ^1^,
 - Mette Termansen ^3^, Olivier Therond ^4^
 output:
-  pdf_document:
-    latex_engine: xelatex
   html_document:
     df_print: paged
+  pdf_document:
+    latex_engine: xelatex
 mainfont: Calibri
 fontsize: 11pt
 ---
