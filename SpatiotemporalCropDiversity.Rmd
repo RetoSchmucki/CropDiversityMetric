@@ -4,10 +4,10 @@ author:
 - Reto Schmucki ^1,\*^, David A. Bohan ^2^, Michael J.O. Pocock ^1^,
 - Mette Termansen ^3^, Olivier Therond ^4^
 output:
-  pdf_document:
-    latex_engine: xelatex
   html_document:
     df_print: paged
+  pdf_document:
+    latex_engine: xelatex
 mainfont: Calibri
 fontsize: 11pt
 ---
@@ -78,7 +78,7 @@ Crop diversity can be estimated along 1) the spatial dimension, representing the
 
 ## Spatial and Temporal diversity functions
 
-To compute each of these IBR curves, we can use the rarefaction function implemented in the R package mobr. This function estimates the IBR curves from an abundance matrix, here described as the number of field of year sown for each crop. Below, we wrote two R-functions to estimate the IBR curve along the temporal dimension respectively. In these functions, we first need to generate a matrix with the total number of occurrence for each crop across the different fields (parcel) in a given year or across the different years in a given field. A third function can be written to generate IBR curves that consider the crop diversity observed in the overall landscape, combining both the spatial and temporal dimension of the cropping system.
+To compute each of these IBR curves, we can use the rarefaction function implemented in the R package mobr. This function estimates the IBR curves from an abundance matrix, here described as the number of field of year sown for each crop. Below, we wrote two R-functions to estimate the IBR curve along the spatial and temporal dimensions. In these functions, we first need to generate a matrix with the total number of occurrence for each crop across the different fields (parcel) in a given year or across the different years in a given field. We also provide a third function to estimate the crop diversity observed in the overall landscape, accounting for both the spatial and temporal dimension of the cropping system.
 
 \vspace{0.5cm}
 
@@ -276,11 +276,10 @@ ggsave("figures/crop_div_plots.png", plot = crop_div_plots,
 
 ## Validation of extrapolated diversity metrics
 
-When crop sequence available are limited in time, we can extrapolate the diversity metric beyond the number of cropping event available. It is suggested that the extrapolated value are acceptable up to twice the length of the sequence available. Although this has been demonstrated to be acceptable for biological diversity, it is less clear if this is also valid for crop diversity sown in rotation systems. To assess the validity of the extrapolated diversity, we used real crop sequences grown across 500 landscapes (5x5km) distributed across Denmark and France. In each country, we extracted the information of 8-year crop sequences grown in 28,092 and 35,079 arable fields, in Denmark and France respectively. From these sequences, we computed the temporal component of crop diversity across the 500 landscapes, contrasting the diversity values estimated from the entire 8-year crop sequences with the values obtained when extrapolating the crop diversity of height years from 4-year crop sequences.
+When crop sequence are limited in time, we can extrapolate the diversity metric beyond the number of cropping event available. It is suggested that the extrapolated value are acceptable up to twice the length of the sequence available. Although this has been shown to be acceptable for biological diversity (e.i., species), it is not clear if this also apply to crop diversity sown in rotation systems. To assess the validity of the extrapolated diversity, we used real crop sequences grown across 500 landscapes (5x5km) distributed across Denmark and France. In each country, we extracted the information of 8-year crop sequences grown in 28,092 and 35,079 arable fields, in Denmark and France respectively. From these sequences, we derived the temporal component of crop diversity from each of the 500 landscapes, contrasting the diversity values estimated from the entire eight years crop sequences with the eight years diversity values obtained through extrapolation from the 4-year truncated crop sequences.
 
-The data we used are a subset of real crop data, that we extracted for 500 randomly sampled landscapes that the location have been censured to the large geographic region.   
+The data we used are a subset of real crop data, that we extracted for 500 randomly sampled landscapes where the location have been censured to the large geographic region.   
 
-Warning: The crop_seq_data.csv data set is awaiting agreement before release.
 \vspace{0.5cm}
 
 ```{r crop_sample_table}
@@ -293,7 +292,7 @@ crop_seq_data[order(landscape5kmID, parcel_id, year),]
 
 \vspace{0.5cm}
 
-From these sequences, we computed the average diversity estimated in arable field within each of the 500 landscapes. We computed the 8-year diversity metric from both the height year and the four year truncated sequences. 
+From these sequences, we computed the average diversity estimated in arable field within each of the 500 landscapes. We computed the 8-year diversity metric from both the eight year and the four year truncated sequences. 
 
 Warning: computing the indices across all fields and landscapes is computer intensive and thus for, we restricted the example below to the first five landscapes, this can be adusted by setting "limit_length = FALSE"
 
@@ -356,7 +355,7 @@ for(nbr_y in c(3, 7)){
 
 \vspace{0.5cm}
 
-These two estimates, the observed and the extrapolated S_8 are the contrasted to examine the validity of the extrapolated indices. This figure shows that extrapolated indices computed from 4-year crop sequence tend to underestimate the diversity, but not severely and the performance increases for more diverse sequences. In light of these results (Figure 4), we would not recommend using sequences shorter than 4 years comparison  should account for the bias associated to extrapolated indices. 
+These two estimates, the observed and the extrapolated S_8 are the contrasted to examine the validity of the extrapolated indices. This figure shows that extrapolated indices computed from 4-year crop sequence tend to underestimate the diversity, but not severely and the performance increases for more diverse sequences. In light of these results (Figure 4), we would not recommend using sequences shorter than four years comparison should account for the bias associated to extrapolated indices. 
 
 \vspace{0.5cm}
 
